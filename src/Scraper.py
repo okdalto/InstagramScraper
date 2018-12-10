@@ -39,13 +39,12 @@ class Scraper():
 
         for src in img:
             alt = ''
-            print(src.get_attribute('alt'))
-#            try:
-            alt = src.get_attribute('alt')
-            src = src.get_attribute('src')
-#            except Exception as e:
-#                self.loadDriver()
-#                raise Exception('저장 도중 브라우저에 문제가 생겨 브라우저를 새로 로딩합니다. 다시 스크래핑을 시도하세요.')
+            try:
+                alt = src.get_attribute('alt')
+                src = src.get_attribute('src')
+            except Exception as e:
+                self.loadDriver()
+                raise Exception('저장 도중 브라우저에 문제가 생겨 브라우저를 새로 로딩합니다. 다시 스크래핑을 시도하세요.')
 
             fileName = src.split('/')[-1]
             if '?' in fileName:
