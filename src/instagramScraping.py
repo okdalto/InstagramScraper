@@ -60,7 +60,7 @@ class MainWidget(QWidget):
 
         self.setLayout(outerBox)
 
-class mainWindow(QMainWindow):
+class MainWindow(QMainWindow):
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -109,6 +109,6 @@ class mainWindow(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    gameWindow = mainWindow()
+    gameWindow = MainWindow()
     gameWindow.show()
     sys.exit(app.exec_())
