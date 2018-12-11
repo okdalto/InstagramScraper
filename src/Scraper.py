@@ -51,12 +51,17 @@ class Scraper():
                 fileName = fileName[:fileName.index('?')]
             if ':' in alt:
                 alt = alt[alt.index(':')+1:]
-            
-            if os.path.isfile(path + '/' + alt + fileName):
+        
+            newFileName = alt + '#' + fileName
+        
+            if os.path.isfile(path + '/' + newFileName):
                 print('the file already exist')
                 continue
-            urllib.request.urlretrieve(src, path + '/' + alt + '#' + fileName )
-            print(path + '/' + alt + '#' + fileName + 'is saved!')
+            if len(newFileName) > 100:
+                print('filename too long')
+                continue
+            urllib.request.urlretrieve(src, path + '/' + newFileName )
+            print(path + '/' + newFileName + 'is saved!')
 
 
 
